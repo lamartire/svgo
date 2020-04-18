@@ -26,7 +26,6 @@ var regNewlinesNeedSpace = /(\S)\r?\n(\S)/g,
  * @author Kir Belevich
  */
 exports.fn = function(item, params) {
-
     if (item.isElem()) {
 
         item.eachAttr(function(attr) {
