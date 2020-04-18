@@ -69,6 +69,7 @@ Today we have:
 | [removeStyleElement](https://github.com/svg/svgo/blob/master/plugins/removeStyleElement.js) | remove `<style>` elements | `disabled` |
 | [removeScriptElement](https://github.com/svg/svgo/blob/master/plugins/removeScriptElement.js) | remove `<script>` elements | `disabled` |
 | [reusePaths](https://github.com/svg/svgo/blob/master/plugins/reusePaths.js) | Find duplicated <path> elements and replace them with <use> links | `disabled` |
+| [currentColor](https://github.com/svg/svgo/blob/master/plugins/currentColor.js) | set `currentColor` for `color`, `fill` and `stroke` attributes for redefine ability from CSS | `disabled` |
 
 Want to know how it works and how to write your own plugin? [Of course you want to](https://github.com/svg/svgo/blob/master/docs/how-it-works/en.md). ([동작방법](https://github.com/svg/svgo/blob/master/docs/how-it-works/ko.md))
 

@@ -56,6 +56,8 @@ var FS = require('fs'),
         },{
           cleanupNumericValues: true,
         },{
+          currentColor: true
+        },{
           moveElemsAttrsToGroup: true,
         },{
           moveGroupAttrsToElems: true,
