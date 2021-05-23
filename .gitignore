@@ -1,6 +1,7 @@
 node_modules
 dist
-.nyc_output
+test/regression-fixtures
+test/regression-diffs
 coverage
 bin/svgo-profiling
 .DS_Store

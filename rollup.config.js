@@ -1,6 +1,7 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+import { terser } from 'rollup-plugin-terser';
 
 export default {
   input: './lib/svgo.js',
@@ -13,25 +14,30 @@ export default {
   },
   plugins: [
     {
-      resolveId(importee) {
-        if (['os', 'stream', 'string_decoder'].includes(importee)) {
+      resolveId(importee, importer) {
+        if (importee === 'os') {
           return importee;
+        }
+        // see https://github.com/csstree/csstree/pull/152
+        if (importee === 'css-tree') {
+          return this.resolve('css-tree/dist/csstree.min.js', importer);
         }
       },
       load(id) {
         if (id === 'os') {
           return `export var EOL = '\\n'`;
         }
-        if (id === 'stream') {
-          return `export function Stream(){}`;
-        }
-        if (id === 'string_decoder') {
-          return `export default null`;
-        }
       },
     },
     nodeResolve({ browser: true, preferBuiltins: false }),
     commonjs(),
     json(),
+    // Whitespaces and comments removal makes the browser bundle lighter
+    // while retaining the ability to debug errors
+    terser({
+      compress: false,
+      mangle: false,
+      format: { comments: false },
+    }),
   ],
 };
