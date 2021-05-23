@@ -16,7 +16,7 @@ exports.description = 'change fill and stroke attributes to "currentColor"'
  *
  * @author Konstantin Epishev
  */
-exports.fn = function(item) {
+exports.fn = function (item) {
     if (!item.isElem()) return
     if (!item.hasAttr('stroke') && !item.hasAttr('fill') && !item.hasAttr('color')) return
 
